@@ -3,6 +3,7 @@ import type { PageLoad } from './$types';
 import { db } from '$lib/firebase';
 import { error } from '@sveltejs/kit';
 
+export const ssr = false;
 export const load = (async ({ params }) => {
 	const posterUrl = new URL('https://images.weserv.nl/');
 	const posterRef = doc(db, 'posters', params.posterId);
