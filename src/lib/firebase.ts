@@ -1,5 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, type User } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 import { writable } from 'svelte/store';
 
 const firebaseConfig = {
@@ -13,6 +15,8 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
+export const db = getFirestore();
+export const storage = getStorage();
 
 /**
  * @returns a store with the current firebase user

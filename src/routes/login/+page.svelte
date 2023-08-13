@@ -2,12 +2,13 @@
 	import { goto } from '$app/navigation';
 	import Authcheck from '$components/Authcheck.svelte';
 	import { auth, user } from '$lib/firebase';
-	import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+	import { GoogleAuthProvider, signInWithPopup, signInWithRedirect } from 'firebase/auth';
 	import { GradientButton } from 'flowbite-svelte';
 
 	async function signInwithGoogle() {
 		const provider = new GoogleAuthProvider();
 		await signInWithPopup(auth, provider);
+		// await signInWithRedirect(auth, provider);
 		goto('/new', { replaceState: true });
 	}
 </script>
