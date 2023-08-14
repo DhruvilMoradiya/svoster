@@ -159,7 +159,11 @@
 	<div class="flex flex-col items-center my-10">
 		<h2 class="text-3xl font-semibold">{data.posterName}</h2>
 		{#if data.posterDesc.length > 100}
-			<p class="text-gray-500 text-md text-center w-11/12">{data.posterDesc.slice(0, 100)}...</p>
+			<p class="text-gray-500 text-md text-center w-11/12" title={data.posterDesc}>
+				{data.posterDesc.slice(0, 100)}...
+			</p>
+		{:else}
+			<p class="text-gray-500 text-md text-center w-11/12">{data.posterDesc}</p>
 		{/if}
 		<p class="text-sm">by {data.username}</p>
 		<p class="mt-2">
