@@ -12,7 +12,7 @@
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import { canvas } from '$lib/canvasStore';
-	import { doc, increment } from 'firebase/firestore';
+	import { doc, increment, updateDoc } from 'firebase/firestore';
 	import { db } from '$lib/firebase';
 
 	export let data: PageData;
