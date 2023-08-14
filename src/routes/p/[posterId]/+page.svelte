@@ -12,6 +12,8 @@
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import { canvas } from '$lib/canvasStore';
+	import { doc, increment } from 'firebase/firestore';
+	import { db } from '$lib/firebase';
 
 	export let data: PageData;
 	const date = new Date(data.time.seconds * 1000);
@@ -100,7 +102,11 @@
 		});
 	}
 
-	function download() {
+	async function download() {
+		const posterRef = doc(db, 'posters', data.id);
+		await updateDoc(posterRef, {
+			supporters: increment(1)
+		});
 		let link = document.createElement('a');
 		link.download = 'poster.jpeg';
 		link.href = $canvas?.toDataURL() || '';

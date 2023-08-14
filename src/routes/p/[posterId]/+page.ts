@@ -10,7 +10,7 @@ export const load = (async ({ params }) => {
 	const postSnap = await getDoc(posterRef);
 	if (postSnap.exists()) {
 		posterUrl.searchParams.append('url', postSnap.data().posterUrl);
-		return { ...postSnap.data(), posterUrl };
+		return { ...postSnap.data(), posterUrl, id: params.posterId };
 	} else {
 		error(404, 'Not Found buddy :)');
 	}
