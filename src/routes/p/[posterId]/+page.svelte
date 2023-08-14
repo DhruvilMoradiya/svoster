@@ -116,7 +116,7 @@
 	}
 
 	function addTextHandler(): void {
-		const text = new fabric.IText('Add your text');
+		const text = new fabric.IText('Add your name');
 
 		$canvas?.add(text);
 		$canvas?.setActiveObject(text);
